@@ -51,6 +51,27 @@ public class UsuarioDAO extends DAO<Usuario> {
 		return -1;
 	}
 
+	@Override
+	public String show(String obj) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean update(String alt, int updateFlag, int id) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(int id_contato) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+
 	
 	
 }

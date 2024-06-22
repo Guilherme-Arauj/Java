@@ -15,7 +15,16 @@ public class ContatosPF {
 	private String cep;
 	private String data_Nascimento;
 	private String observacao;
+	private String email_usuario;
 	
+
+	
+	public String getEmail_usuario() {
+		return email_usuario;
+	}
+	public void setEmail_usuario(String email_usuario) {
+		this.email_usuario = email_usuario;
+	}
 	public String getObservacao() {
 		return observacao;
 	}

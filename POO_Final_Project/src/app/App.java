@@ -68,19 +68,22 @@ public class App {
 								System.out.println("4. Excluir usuário \n");
 								break;
 							case 1:
+								Utils.clearScreen();
 								System.out.println("-------------------- MENU CLIENTE --------------------\n");
 								System.out.println("1. Adicionar Contato \n");
 								System.out.println("2. Listar Todos Contatos \n");
 								System.out.println("3. Buscar Contato pelo Nome \n");
 								System.out.println("4. Buscar Contato pelo Número de Telefone \n");
 								System.out.println("5. Editar Contato \n");
-								System.out.println("6. Log Out \n");
+								System.out.println("6. Excluir Contato \n");
+								System.out.println("7. Log Out \n");
 								
 								int userResponse = sc.nextInt();
 								
 							
 										switch(userResponse) {
 										case 1:
+											Utils.clearScreen();
 											String cadastroMessage = ContatoController.cadastrarContato(sc);
 											
 											System.out.println(cadastroMessage);
@@ -97,38 +100,102 @@ public class App {
 											}else {
 												System.out.println("Opção inválida");
 											}
-											
+											Utils.clearScreen();
 											break;
 											
 										case 2:
-											System.out.println("\n Função para Listar Contato \n");
-											
+											Utils.clearScreen();
+											String conteudoContatos = ContatoController.listarContato(sc);
+											System.out.println(conteudoContatos);
+
 											int ActionTwoResult = Utils.menuBackHandler(sc);
-											
-											if(ActionTwoResult == 1) {
-												break;
-											}else if(ActionTwoResult == 2) {
-												System.out.println("Log Out realizado com sucesso.");
-												userRunning=false;
-												break;
-											}else {
-												System.out.println("Opção inválida");
+
+											if (ActionTwoResult == 1) {
+											    break;
+											} else if (ActionTwoResult == 2) {
+											    System.out.println("Log Out realizado com sucesso.");
+											    userRunning = false;
+											    break;
+											} else {
+											    System.out.println("Opção inválida");
 											}
-											
+											Utils.clearScreen();
 											break;
 											
 										case 3:
-											System.out.println("função para Buscar Contato pelo Nome");
-											break;
+											Utils.clearScreen();
+											String conteudoContatosPorNome = ContatoController.listarContatoPorNome(sc);
+											System.out.println(conteudoContatosPorNome);
 
-										case 4:
-											System.out.println("função para Buscar Contato pelo Número de Telefone");
+											int ActionThreeResult = Utils.menuBackHandler(sc);
+
+											if (ActionThreeResult == 1) {
+											    break;
+											} else if (ActionThreeResult == 2) {
+											    System.out.println("Log Out realizado com sucesso.");
+											    userRunning = false;
+											    break;
+											} else {
+											    System.out.println("Opção inválida");
+											}
+											Utils.clearScreen();
 											break;
-											
+										case 4:
+											Utils.clearScreen();
+											String conteudoContatosPorTelefone = ContatoController.listarContatoPorTelefone(sc);
+											System.out.println(conteudoContatosPorTelefone);
+
+											int ActionFourResult = Utils.menuBackHandler(sc);
+
+											if (ActionFourResult == 1) {
+											    break;
+											} else if (ActionFourResult == 2) {
+											    System.out.println("Log Out realizado com sucesso.");
+											    userRunning = false;
+											    break;
+											} else {
+											    System.out.println("Opção inválida");
+											}
+											Utils.clearScreen();
+											break;
 										case 5:
-											System.out.println("função para Editar Contato");
+											Utils.clearScreen();
+											String editarContatoContent = ContatoController.EditarContato(sc);
+											System.out.println(editarContatoContent);
+
+											int ActionFiveResult = Utils.menuBackHandler(sc);
+
+											if (ActionFiveResult == 1) {
+											    break;
+											} else if (ActionFiveResult == 2) {
+											    System.out.println("Log Out realizado com sucesso.");
+											    userRunning = false;
+											    break;
+											} else {
+											    System.out.println("Opção inválida");
+											}
+											
+											Utils.clearScreen();
 											break;
 										case 6:
+											Utils.clearScreen();
+											String excluirContatosContent = ContatoController.ExcluirContato(sc);
+											System.out.println(excluirContatosContent);
+											
+											int ActionSixResult = Utils.menuBackHandler(sc);
+
+											if (ActionSixResult == 1) {
+											    break;
+											} else if (ActionSixResult == 2) {
+											    System.out.println("Log Out realizado com sucesso.");
+											    userRunning = false;
+											    break;
+											} else {
+											    System.out.println("Opção inválida");
+											}
+											
+											Utils.clearScreen();
+										case 7:
 											System.out.println("Log Out realizado com sucesso.");
 											userRunning=false;
 											break;
@@ -147,6 +214,13 @@ public class App {
 					
 				default:
 					System.err.println("Opção inválida!");
+					 System.out.println("\n1. Voltar ao menu principal");
+	                 System.out.println("2. Sair");
+
+	                 int postCadastroResponse2 = sc.nextInt();
+	                 if (postCadastroResponse2 == 2) {
+	                     running = false;
+	                 }
 					
 					break;
 				}
